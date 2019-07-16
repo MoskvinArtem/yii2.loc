@@ -1,5 +1,6 @@
 <?php
 use app\assets\AppAsset;
+use yii\helpers\Html;
 
 AppAsset::register($this);
 ?>
@@ -19,10 +20,16 @@ AppAsset::register($this);
   </head>
   <body>
     <?php $this->beginBody() ?>
-    <h1>Hello, world!</h1>
-
-    <?= $content; ?>
-
+    <div class="wrap">
+      <div class="container">
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><?= Html::a('Главная', '/web/'); ?></li>
+          <li role="presentation"><?= Html::a('Статьи', ['/post/index']); ?></li>
+          <li role="presentation"><?= Html::a('Статья', ['/post/show']); ?></li>
+        </ul>
+        <?= $content; ?>
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 

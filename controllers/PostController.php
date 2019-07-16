@@ -4,9 +4,14 @@ namespace app\controllers;
 
 class PostController extends AppController{
 
+  //Свой шаблон для контроллера!
   public $layout = 'basic';
 
   public function actionIndex(){
+    if( Yii::$app->request->isAjax ){
+      debug($_GET);
+      return 'test';
+    }
     return $this->render('index');
   }
 
@@ -16,7 +21,8 @@ class PostController extends AppController{
   }
 
   public function actionShow(){
-    $this->layout = 'main';
+    //Свой шаблон для экшона!
+    //$this->layout = 'main';
     return $this->render('show');
   }
 
