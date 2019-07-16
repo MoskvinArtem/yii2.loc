@@ -2,13 +2,21 @@
 
 namespace app\controllers;
 
-use yii\web\Controller;
+class MyController extends AppController{
 
-class MyController extends Controller{
+  public function actionIndex($id = null){
 
-  public function actionIndex(){
+    //Передача id через строку поиска вида
+    if(!$id) {$id = 'test';}
+
+    //Передача переменных в вид через рендер
     $vars = ['One', 'Punch', 'Man!'];
-    return $this->render('index', ['vars' => $vars]);
+    // return $this->render('index', ['vars' => $vars]);
+    return $this->render('index', compact('vars', 'id'));
+  }
+
+  public function actionBlogPost(){
+    return 'Blog Post';
   }
 
 }
