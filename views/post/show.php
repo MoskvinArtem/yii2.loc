@@ -1,4 +1,20 @@
+<?php
+
+/* @var $this yii\web\View */
+
+//Объявление параметров вида Show (в контроллере тоже есть)
+//$this->title = 'Статья';
+// $this->params['breadcrumbs'][] = $this->title;
+?>
+
+<!-- Подключение данных из вида(экшона) в шаблон -->
+<?php $this->beginBlock('Block1'); ?>
+  <h1>Заголовок страницы</h1>
+<?php $this->endBlock(); ?>
+
 <h1>Show action</h1>
+
+
 
 <button class="btn btn-succes" id="btn">Click me...?!</button>
 

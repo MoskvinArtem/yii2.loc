@@ -7,19 +7,19 @@ AppAsset::register($this);
 
 <?php $this->beginPage() ?>
 <!doctype html>
-<html lang="en">
+<html lang="<?= Yii::$app->language ?>">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+
+    <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-
-    <title>Hello, world!</title>
+    <?php $this->registerCsrfMetaTags() ?>
+    <title><?= Html::encode($this->title)?></title>
     <?php $this->head() ?>
   </head>
   <body>
     <?php $this->beginBody() ?>
+    
     <div class="wrap">
       <div class="container">
         <ul class="nav nav-pills">
@@ -27,11 +27,16 @@ AppAsset::register($this);
           <li role="presentation"><?= Html::a('Статьи', ['/post/index']); ?></li>
           <li role="presentation"><?= Html::a('Статья', ['/post/show']); ?></li>
         </ul>
+
+        <!-- Подключение данных из вида в шаблон -->
+        <?php if(isset($this->blocks['Block1'])){ ?>
+          <?php echo $this->blocks['Block1'] ?>
+        <?php } ?>
+
         <?= $content; ?>
+
       </div>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
     <?php $this->endBody() ?>
   </body>
