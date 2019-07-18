@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use yii;
+use app\models\TestForm;
 
 class PostController extends AppController{
 
@@ -23,7 +24,9 @@ class PostController extends AppController{
       debug(Yii::$app->request->post());
       return 'test';
     }
-    return $this->render('index');
+
+    $model = new TestForm();
+    return $this->render('index', compact('model'));
   }
 
   // Action тест
